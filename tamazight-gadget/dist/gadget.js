@@ -1,8 +1,3 @@
-
-import './styles.css';
-import  buildUI  from './ui/formBuilder.js';
-import  attachEvents  from './ui/events.js';
-
 function () {
     'use strict';
     const CONFIG = {
