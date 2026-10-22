@@ -1,7 +1,7 @@
 import buildUI from './ui/formBuilder';
 import  attachEvents from './ui/events';
 
-function initGadget() {
+export default function initGadget() {
     if (typeof mw === 'undefined') {
         console.error('MediaWiki is not available.');
         return;
