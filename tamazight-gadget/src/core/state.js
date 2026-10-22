@@ -2,7 +2,7 @@ import {CONFIG} from '../config.js' ;
 
 const pageTitle = (typeof mw !== 'undefined') ? mw.config.get('wgTitle') : 'TestWord' ; 
 
-let state = {
+let state = { 
   metadata: {
     ⵜⵓⵜⵍⴰⵢⵜ : CONFIG.langCode , 
      ⴰⵡⴰⵍ: pageTitle, 
