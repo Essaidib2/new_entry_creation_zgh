@@ -16,9 +16,7 @@ function initGadget() {
 
     if (document.getElementById('zgh-entry-form')) {
         return;
-    }
-
-    
+    }   
     const contentArea =
         document.getElementById('mw-content-text');
 
@@ -27,8 +25,7 @@ function initGadget() {
         return;
     }
 
-    try {
-        
+    try {    
         const ui = buildUI();
 
         if (!ui) {
@@ -39,7 +36,6 @@ function initGadget() {
         ui.id = 'zgh-entry-form';
         contentArea.prepend(ui);
 
-       
         attachEvents();
 
         console.log('Tamazight Wiktionary gadget initialized.');
@@ -48,10 +44,9 @@ function initGadget() {
     }
 }
 
-
 if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initGadget, {
-        once: true
+        once : true
     });
 } else {
     initGadget();
