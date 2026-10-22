@@ -1,0 +1,86 @@
+
+.tzm-gadget {
+    max-width: 950px;
+    margin: 24px auto;
+    padding: 24px;
+    background: #ffffff;
+    border: 1px solid #c8ccd1;
+    border-top: 4px solid #36c;
+    border-radius: 10px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+    font-family: sans-serif;
+    color: #202122;
+}
+
+.tzm-gadget h2 {
+    margin-top: 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #eaecf0;
+    font-size: 1.4rem;
+}
+
+.tzm-gadget input[type="text"],
+.tzm-gadget select,
+.tzm-gadget textarea {
+    width: 100%;
+    padding: 10px 12px;
+    margin: 6px 0 16px;
+    border: 1px solid #a2a9b1;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background: #fff;
+    font-size: 14px;
+}
+
+
+.tzm-gadget input:focus,
+.tzm-gadget select:focus,
+.tzm-gadget textarea:focus {
+    outline: 2px solid #36c;
+    outline-offset: 1px;
+}
+
+
+#tzm-submit-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #36c;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+#tzm-submit-btn:hover {
+    background: #2a4b8d;
+}
+
+
+#tzm-preview-area {
+    display: block;
+    width: 100%;
+    min-height: 180px;
+    padding: 14px;
+    margin-top: 16px;
+    background: #f8f9fa;
+    border: 1px solid #c8ccd1;
+    border-left: 4px solid #36c;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-family: monospace;
+    line-height: 1.6;
+    resize: vertical;
+}
+
+@media (max-width: 600px) {
+    .tzm-gadget {
+        margin: 12px;
+        padding: 16px;
+    }
+
+    #tzm-submit-btn {
+        width: 100%;
+    }
+}
