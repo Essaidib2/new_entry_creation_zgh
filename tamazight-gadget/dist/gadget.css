@@ -1,35 +1,43 @@
 
 .tzm-gadget {
-    color: #202122;
-    line-height: 1.6;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    border-top: 4px solid #36c;
-    border-radius: 10px;
+    background-color: #f8f9fa;
+    border: 1px solid #a2a9b1;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 2px;
+    font-family: sans-serif;
 }
 
-.tzm-gadget h2,
-.tzm-gadget h3 {
-    color: #202122;
-    margin-top: 0;
-    margin-bottom: 18px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eaecf0;
-    line-height: 1.4;
+.tzm-gadget label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
 }
 
-.tzm-gadget fieldset {
-    border: 1px solid #c8ccd1;
-    border-radius: 8px;
-    padding: 18px;
-    margin: 0 0 20px;
-    background: #fff;
+.tzm-gadget input[type="text"], .tzm-gadget select {
+    width: 100%;
+    padding: 6px;
+    margin-top: 4px;
+    box-sizing: border-box;
 }
-
-.tzm-gadget legend {
-    padding: 0 8px;
-    font-size: 1rem;
-    font-weight: 700;
-    color: #36c;
+#tzm-submit-btn {
+    background-color: #36c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 15px;
+}
+#tzm-submit-btn:hover {
+    background-color: #447ff5;
+}
+#tzm-preview-area {
+    width: 100%;
+    height: 150px;
+    margin-top: 20px;
+    font-family: monospace;
+    background-color: #eaecf0;
 }
 .tzm-gadget input[type="text"],
 .tzm-gadget select,
