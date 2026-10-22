@@ -1,0 +1,136 @@
+
+.tzm-gadget {
+    color: #202122;
+    line-height: 1.6;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #36c;
+    border-radius: 10px;
+}
+
+.tzm-gadget h2,
+.tzm-gadget h3 {
+    color: #202122;
+    margin-top: 0;
+    margin-bottom: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eaecf0;
+    line-height: 1.4;
+}
+
+.tzm-gadget fieldset {
+    border: 1px solid #c8ccd1;
+    border-radius: 8px;
+    padding: 18px;
+    margin: 0 0 20px;
+    background: #fff;
+}
+
+.tzm-gadget legend {
+    padding: 0 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #36c;
+}
+.tzm-gadget input[type="text"],
+.tzm-gadget select,
+.tzm-gadget textarea {
+    transition: border-color 0.2s ease,
+                box-shadow 0.2s ease;
+}
+
+.tzm-gadget input:hover,
+.tzm-gadget select:hover,
+.tzm-gadget textarea:hover {
+    border-color: #72777d;
+}
+
+.tzm-gadget input:focus,
+.tzm-gadget select:focus,
+.tzm-gadget textarea:focus {
+    border-color: #36c;
+    box-shadow: 0 0 0 2px rgba(51, 102, 204, 0.15);
+}
+
+#tzm-submit-btn {
+    min-height: 40px;
+    border-radius: 6px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+    transition: background-color 0.2s ease,
+                transform 0.15s ease;
+}
+
+#tzm-submit-btn:hover {
+    background-color: #2a4b8d;
+}
+
+#tzm-submit-btn:active {
+    transform: translateY(1px);
+}
+
+#tzm-submit-btn:disabled {
+    background-color: #a2a9b1;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+#tzm-preview-area {
+    display: block;
+    min-height: 180px;
+    line-height: 1.6;
+    color: #202122;
+    border-left: 4px solid #36c;
+    overflow-wrap: anywhere;
+}
+
+.tzm-gadget .preview-title {
+    margin: 20px 0 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #202122;
+}
+
+.tzm-gadget .field-help {
+    display: block;
+    margin-top: -10px;
+    margin-bottom: 14px;
+    color: #54595d;
+    font-size: 0.85rem;
+}
+
+.tzm-gadget a {
+    color: #36c;
+    text-decoration: none;
+}
+
+.tzm-gadget a:hover {
+    text-decoration: underline;
+}
+
+.tzm-gadget :focus-visible {
+    outline: 2px solid #36c;
+    outline-offset: 2px;
+}
+
+.tzm-gadget hr {
+    border: 0;
+    border-top: 1px solid #eaecf0;
+    margin: 22px 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tzm-gadget *,
+    #tzm-submit-btn {
+        transition: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .tzm-gadget {
+        padding: 16px;
+        border-radius: 8px;
+    }
+
+    .tzm-gadget fieldset {
+        padding: 12px;
+    }
+}
