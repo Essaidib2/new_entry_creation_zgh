@@ -1,0 +1,273 @@
+.tzm-gadget {
+    --tzm-ink: #e8f4ff;
+    --tzm-muted: #9bb4cb;
+    --tzm-cyan: #57e3f2;
+    --tzm-blue: #668cff;
+    --tzm-line: rgba(153, 203, 238, 0.18);
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: clamp(20px, 4vw, 34px);
+    margin: 24px 0;
+    border: 1px solid rgba(119, 202, 241, 0.32);
+    border-radius: 20px;
+    color: var(--tzm-ink);
+    background:
+        radial-gradient(ellipse at 88% 4%, rgba(64, 119, 255, 0.22), transparent 32%),
+        radial-gradient(ellipse at 8% 100%, rgba(26, 213, 209, 0.13), transparent 38%),
+        linear-gradient(145deg, #101d34 0%, #0a1426 58%, #101b31 100%);
+    box-shadow:
+        0 24px 60px rgba(5, 13, 30, 0.32),
+        0 8px 18px rgba(5, 13, 30, 0.2),
+        inset 0 1px 0 rgba(226, 246, 255, 0.12);
+    font-family: Inter, "Segoe UI", sans-serif;
+    perspective: 1000px;
+}
+
+.tzm-gadget::before,
+.tzm-gadget::after {
+    position: absolute;
+    z-index: -1;
+    pointer-events: none;
+    content: "";
+}
+
+.tzm-gadget::before {
+    inset: 0;
+    opacity: 0.25;
+    background-image:
+        linear-gradient(rgba(145, 199, 232, 0.09) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(145, 199, 232, 0.09) 1px, transparent 1px);
+    background-size: 34px 34px;
+    mask-image: linear-gradient(135deg, #000 0%, transparent 78%);
+}
+
+.tzm-gadget::after {
+    top: -90px;
+    right: -50px;
+    width: 230px;
+    height: 230px;
+    border: 1px solid rgba(87, 227, 242, 0.14);
+    border-radius: 50%;
+    box-shadow:
+        0 0 0 18px rgba(87, 227, 242, 0.025),
+        0 0 0 38px rgba(87, 227, 242, 0.02),
+        inset 0 0 35px rgba(87, 227, 242, 0.06);
+}
+
+.tzm-gadget h3 {
+    position: relative;
+    margin: 0 0 26px;
+    padding: 0 0 16px;
+    color: #f2fbff;
+    font-size: clamp(1.25rem, 2.6vw, 1.65rem);
+    font-weight: 750;
+    letter-spacing: 0.015em;
+    line-height: 1.4;
+    text-shadow: 0 0 24px rgba(87, 227, 242, 0.18);
+}
+
+.tzm-gadget h3::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 74px;
+    height: 2px;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--tzm-cyan), var(--tzm-blue), transparent);
+    content: "";
+}
+
+.tzm-gadget label {
+    position: relative;
+    display: block;
+    margin: 0 0 17px;
+    color: #c9dced;
+    font-size: 0.94rem;
+    font-weight: 650;
+    line-height: 1.5;
+}
+
+.tzm-gadget input[type="text"],
+.tzm-gadget select,
+.tzm-gadget textarea {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 7px;
+    border: 1px solid var(--tzm-line);
+    border-radius: 10px;
+    color: var(--tzm-ink);
+    background: rgba(5, 13, 27, 0.64);
+    box-shadow:
+        inset 0 2px 5px rgba(0, 0, 0, 0.18),
+        0 1px 0 rgba(255, 255, 255, 0.025);
+    font: inherit;
+    transition:
+        border-color 180ms ease,
+        background-color 180ms ease,
+        box-shadow 180ms ease,
+        transform 180ms ease;
+}
+
+.tzm-gadget input[type="text"],
+.tzm-gadget select {
+    min-height: 44px;
+    padding: 10px 12px;
+}
+
+.tzm-gadget select {
+    color-scheme: dark;
+    cursor: pointer;
+}
+
+.tzm-gadget input::placeholder,
+.tzm-gadget textarea::placeholder {
+    color: #829ab2;
+    opacity: 1;
+}
+
+.tzm-gadget input:hover,
+.tzm-gadget select:hover,
+.tzm-gadget textarea:hover {
+    border-color: rgba(87, 227, 242, 0.5);
+    background-color: rgba(8, 20, 39, 0.84);
+}
+
+.tzm-gadget input:focus,
+.tzm-gadget select:focus,
+.tzm-gadget textarea:focus {
+    border-color: var(--tzm-cyan);
+    outline: none;
+    background-color: rgba(8, 20, 39, 0.94);
+    box-shadow:
+        0 0 0 3px rgba(87, 227, 242, 0.14),
+        0 0 24px rgba(87, 227, 242, 0.1),
+        inset 0 2px 5px rgba(0, 0, 0, 0.18);
+}
+
+.tzm-gadget :focus-visible {
+    outline: 2px solid var(--tzm-cyan);
+    outline-offset: 3px;
+}
+
+#tzm-submit-btn {
+    position: relative;
+    min-height: 46px;
+    margin-top: 6px;
+    padding: 11px 20px;
+    overflow: hidden;
+    border: 1px solid rgba(177, 244, 255, 0.42);
+    border-radius: 10px;
+    color: #061421;
+    background: linear-gradient(120deg, #62e8ed, #84c5ff 58%, #9dacf9);
+    box-shadow:
+        0 8px 20px rgba(52, 187, 218, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 750;
+    transition: box-shadow 180ms ease, filter 180ms ease, transform 180ms ease;
+}
+
+#tzm-submit-btn:hover {
+    filter: brightness(1.08);
+    box-shadow:
+        0 12px 26px rgba(52, 187, 218, 0.28),
+        0 0 22px rgba(87, 227, 242, 0.16),
+        inset 0 1px 0 rgba(255, 255, 255, 0.65);
+    transform: translateY(-2px);
+}
+
+#tzm-submit-btn:active {
+    transform: translateY(0);
+}
+
+#tzm-submit-btn:disabled {
+    border-color: var(--tzm-line);
+    color: #a6b7c9;
+    background: #26364b;
+    box-shadow: none;
+    cursor: wait;
+    filter: none;
+    transform: none;
+}
+
+#tzm-preview-area {
+    display: block;
+    min-height: 180px;
+    margin-top: 24px;
+    padding: 15px;
+    border: 1px solid rgba(105, 161, 210, 0.22);
+    border-left: 3px solid var(--tzm-cyan);
+    border-radius: 10px;
+    color: #c9dbed;
+    background:
+        linear-gradient(rgba(88, 139, 182, 0.045) 1px, transparent 1px),
+        rgba(4, 11, 23, 0.72);
+    background-size: 100% 24px;
+    box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.22);
+    font-family: "Cascadia Code", Consolas, monospace;
+    font-size: 0.9rem;
+    line-height: 1.65;
+    overflow-wrap: anywhere;
+    resize: vertical;
+}
+
+.tzm-gadget .preview-title {
+    margin: 20px 0 8px;
+    color: #e8f4ff;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.tzm-gadget .field-help {
+    display: block;
+    margin: -10px 0 14px;
+    color: var(--tzm-muted);
+    font-size: 0.85rem;
+}
+
+.tzm-gadget a {
+    color: var(--tzm-cyan);
+    text-decoration: none;
+}
+
+.tzm-gadget a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.tzm-gadget hr {
+    height: 1px;
+    margin: 22px 0;
+    border: 0;
+    background: linear-gradient(90deg, var(--tzm-line), transparent);
+}
+
+@media (max-width: 600px) {
+    .tzm-gadget {
+        padding: 20px 16px;
+        border-radius: 15px;
+    }
+
+    .tzm-gadget label {
+        margin-bottom: 14px;
+    }
+
+    #tzm-submit-btn {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .tzm-gadget *,
+    .tzm-gadget *::before,
+    .tzm-gadget *::after,
+    #tzm-submit-btn {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}
