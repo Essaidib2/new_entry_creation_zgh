@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tamazight Dictionary Gadget</title>
+    <!-- Link to your CSS (if you have it) -->
+    <link rel="stylesheet" href="src/styles/gadget.css">
+    <style>
+        body { font-family: sans-serif; padding: 2rem; max-width: 800px; margin: auto; }
+        /* Fake MediaWiki content area */
+        #mw-content-text { border: 1px dashed #ccc; padding: 20px; border-radius: 5px; }
+    </style>
+</head>
+<body>
+
+    <h1>Wiktionary Gadget Tester</h1>
+    <p>This is a live preview of the Tamazight entry-creation gadget.</p>
+    
+    <!-- This is the ID your gadget.js looks for -->
+    <div id="mw-content-text"></div>
+
+    <!-- Link to your bundled gadget.js -->
+    <script src="dist/gadget.js"></script>
+    
+</body>
+</html>
