@@ -2,7 +2,7 @@
     'use strict';
 
     const CONFIG = {
-        langCode: 'tzm',
+        langCode: 'zgh',
         defaultScript: 'Tfng',
         templates: {
             pos: 'pos',
@@ -41,15 +41,14 @@
         if (!text) return '';
 
         const map = {
-            'gw': 'ⴳⵯ', 'kw': 'ⴽⵯ',
-
+            'gʷ': 'ⴳⵯ', 'kʷ': 'ⴽⵯ', 'ʷ': 'ⵯ',
             'a': 'ⴰ', 'b': 'ⴱ', 'c': 'ⵛ', 'd': 'ⴷ', 'ḍ': 'ⴹ',
             'e': 'ⴻ', 'f': 'ⴼ', 'g': 'ⴳ', 'h': 'ⵀ', 'ḥ': 'ⵃ',
             'i': 'ⵉ', 'j': 'ⵊ', 'k': 'ⴽ', 'l': 'ⵍ', 'm': 'ⵎ',
             'n': 'ⵏ', 'q': 'ⵇ', 'r': 'ⵔ', 'ṛ': 'ⵕ', 's': 'ⵙ',
             'ṣ': 'ⵚ', 't': 'ⵜ', 'ṭ': 'ⵟ', 'u': 'ⵓ', 'w': 'ⵡ',
             'x': 'ⵅ', 'y': 'ⵢ', 'z': 'ⵣ', 'ẓ': 'ⵥ',
-            'ɣ': 'ⵖ', 'ɛ': 'ⵄ', 'ǧ': 'ⴵ', 'č': 'ⵞ'
+            'ɣ': 'ⵖ', 'ɛ': 'ⵄ'
         };
 
         let result = '';
@@ -202,17 +201,17 @@
 
     function fieldset(tam, eng) {
         const fs = el('fieldset');
-        const lg = el('div', { className: 'tzm-legend' });
+        const lg = el('div', { className: 'zgh-legend' });
         lg.appendChild(starSpan());
-        lg.appendChild(el('span', { className: 'tzm-leg-tam', textContent: tam }));
-        lg.appendChild(el('span', { className: 'tzm-leg-sep', textContent: ' / ' }));
-        lg.appendChild(el('span', { className: 'tzm-leg-eng', textContent: eng }));
+        lg.appendChild(el('span', { className: 'zgh-leg-tam', textContent: tam }));
+        lg.appendChild(el('span', { className: 'zgh-leg-sep', textContent: ' / ' }));
+        lg.appendChild(el('span', { className: 'zgh-leg-eng', textContent: eng }));
         fs.appendChild(lg);
         return fs;
     }
 
     function starSpan() {
-        const s = el('span', { className: 'tzm-star' });
+        const s = el('span', { className: 'zgh-star' });
         s.setAttribute('aria-hidden', 'true');
         return s;
     }
@@ -220,7 +219,7 @@
     // ------------------------------------------------------------- build UI
 
     function buildUI() {
-        const container = el('div', { id: 'tzm-gadget-container', className: 'tzm-gadget' });
+        const container = el('div', { id: 'zgh-gadget-container', className: 'zgh-gadget' });
 
         // --- Header band (artwork lifted from the approved design) ------
         const header = el('div', { className: 'tzm-header' });
@@ -229,48 +228,48 @@
         container.appendChild(header);
 
         // --- Two-column body -------------------------------------------
-        const body = el('div', { className: 'tzm-body' });
-        const colForm = el('div', { className: 'tzm-col-form' });
-        const colPrev = el('div', { className: 'tzm-col-preview' });
+        const body = el('div', { className: 'zgh-body' });
+        const colForm = el('div', { className: 'zgh-col-form' });
+        const colPrev = el('div', { className: 'zgh-col-preview' });
 
         // Word
         const fsWord = fieldset('ⵜⴰⴳⵓⵔⵉ', 'Word');
         const latinInput = createInput('awalLatin', 'Type in Latin, e.g. amazigh');
-        fsWord.appendChild(createLabel('ⵜⴰⴳⵓⵔⵉ ⵙ ⵍⴰⵜⵉⵏ (Word in Latin):', latinInput));
+        fsWord.appendChild(createLabel('ⵜⴰⴳⵓⵔⵉ ⵙ ⵓⵍⴰⵜⵉⵏ:', latinInput));
         colForm.appendChild(fsWord);
 
         // Grammar
         const fsGram = fieldset('ⵜⴰⵊⵕⵕⵓⵎⵜ', 'Grammar');
         const anawSelect = createSelect('pos', [
-            { value: 'noun', text: 'ⵉⵙⵎ (Noun)' },
-            { value: 'verb', text: 'ⴰⵎⵢⴰⴳ (Verb)' },
-            { value: 'adjective', text: 'ⴰⵔⴱⵉⴱ (Adjective)' }
+            { value: 'noun', text: 'ⵉⵙⵎ' },
+            { value: 'verb', text: 'ⴰⵎⵢⴰⴳ' },
+            { value: 'adjective', text: 'ⴰⴼⵔⵉⵙ' }
         ]);
         fsGram.appendChild(createLabel('ⴰⵏⴰⵡ (Part of speech):', anawSelect));
 
-        const nounBlock = el('div', { id: 'tzm-noun-block', className: 'tzm-grid2' });
-        nounBlock.appendChild(createLabel('ⵜⴰⵡⵙⵉⵜ (Gender):', createSelect('gender', [
+        const nounBlock = el('div', { id: 'zgh-noun-block', className: 'zgh-grid2' });
+        nounBlock.appendChild(createLabel('ⴰⵏⴰⵡ:', createSelect('gender', [
             { value: '', text: '-' },
-            { value: 'm', text: 'ⴰⵎⴰⵍⴰⵢ (Masculine)' },
-            { value: 'f', text: 'ⵓⵏⵜⵉ (Feminine)' }
+            { value: 'm', text: 'ⴰⵎⴰⵢ' },
+            { value: 'f', text: 'ⵓⵏⵜⵉ' }
         ])));
-        nounBlock.appendChild(createLabel('ⴰⵎⴹⴰⵏ (Number):', createSelect('number', [
+        nounBlock.appendChild(createLabel('ⴰⵎⴹⴰⵏ:', createSelect('number', [
             { value: '', text: '-' },
-            { value: 's', text: 'ⴰⵙⵓⴼ (Singular)' },
-            { value: 'p', text: 'ⴰⵙⴳⵜ (Plural)' }
+            { value: 's', text: 'ⴰⵎⵢⵉⵡⵏ' },
+            { value: 'p', text: 'ⴰⵎⴰⴳⵓⵜ' }
         ])));
-        const counterInput = createInput('plural', 'e.g. imaziɣen');
+        const counterInput = createInput('plural', 'e.g. ⵉⵎⴰⵣⵉⵖⵏ');
         const counterLabel = el('label', { className: 'tzm-span2' });
-        counterLabel.appendChild(el('span', { id: 'tzm-counterform-text', textContent: 'ⴰⵙⴳⵜ (Plural form): ' }));
+        counterLabel.appendChild(el('span', { id: 'zgh-counterform-text', textContent: 'ⴰⵎⴰⴳⵓⵜ: ' }));
         counterLabel.appendChild(counterInput);
         nounBlock.appendChild(counterLabel);
         fsGram.appendChild(nounBlock);
 
-        const verbBlock = el('div', { id: 'tzm-verb-block', className: 'tzm-grid2' });
-        verbBlock.appendChild(createLabel('ⵓⵔⵎⵉⵔ (Aorist):', createInput('aorist', 'bare stem')));
-        verbBlock.appendChild(createLabel('ⵉⵣⵔⵉ (Perfective):', createInput('perfective', '')));
-        verbBlock.appendChild(createLabel('ⴰⵔ ⵉⵣⵔⵉ (Imperfective):', createInput('imperfective', '')));
-        verbBlock.appendChild(createLabel('ⵉⵣⵔⵉ ⴰⵏⴰⵎⴳⴰⵍ (Negative perfective):', createInput('negPerfective', '')));
+        const verbBlock = el('div', { id: 'zgh-verb-block', className: 'zgh-grid2' });
+        verbBlock.appendChild(createLabel('ⵓⵔⵎⵉⵔ:', createInput('aorist', 'bare stem')));
+        verbBlock.appendChild(createLabel('ⵓⵙⵎⵉⴷ:', createInput('perfective', '')));
+        verbBlock.appendChild(createLabel('ⴰⵔⵓⵙⵎⵉⴷ:', createInput('imperfective', '')));
+        verbBlock.appendChild(createLabel('ⵓⵙⵎⵉⴷ ⴰⵏⴰⴱⴰⵡ:', createInput('negPerfective', '')));
         fsGram.appendChild(verbBlock);
         colForm.appendChild(fsGram);
 
@@ -281,17 +280,17 @@
 
         // Definitions
         const fsDef = fieldset('ⴰⵏⴰⵎⴽ', 'Definitions');
-        fsDef.appendChild(el('div', { id: 'tzm-def-list' }));
-        const addDef = el('button', { type: 'button', className: 'tzm-add', textContent: '+ ⵔⵏⵓ ⴰⵏⴰⵎⴽ (Add definition)' });
+        fsDef.appendChild(el('div', { id: 'zgh-def-list' }));
+        const addDef = el('button', { type: 'button', className: 'zgh-add', textContent: '+ ⵔⵏⵓ ⴰⵏⴰⵎⴽ' });
         addDef.dataset.action = 'add-def';
         fsDef.appendChild(addDef);
         colForm.appendChild(fsDef);
 
         // Examples
         const fsEx = fieldset('ⵉⵎⴷⵢⴰⵜⵏ', 'Examples');
-        const exHelp = el('div', { className: 'field-help tzm-ex-help' });
+        const exHelp = el('div', { className: 'field-help zgh-ex-help' });
         exHelp.appendChild(el('div', {
-            className: 'tzm-help-tam',
+            className: 'zgh-help-tam',
             textContent: 'ⵜⴰⴼⵢⵉⵔⵜ ⵉⵙⴽⴰⵏⵏ ⵜⴰⴳⵓⵔⵉ ⴳ ⵓⵙⵎⵔⵙ, ⵙ ⵜⵙⵓⵖⵍⵜ ⵏⵏⵙ'
         }));
         exHelp.appendChild(el('div', {
@@ -299,27 +298,27 @@
         }));
         exHelp.appendChild(el('div', {
             className: 'tzm-help-ex',
-            textContent: 'e.g.  ⴰⵔ ⵜⵜⵉⵏⵉⵖ ⵜⵓⵜⵍⴰⵢⵜ ⵉⵏⵓ  —  “I speak my language”'
+            textContent: 'e.g.  ⴰⵔ ⵙⴰⵡⴰⵍⵖ ⵜⵓⵜⵍⴰⵢⵜ ⵉⵏⵓ  —  “I speak my language”'
         }));
         fsEx.appendChild(exHelp);
-        fsEx.appendChild(el('div', { id: 'tzm-ex-list' }));
-        const addEx = el('button', { type: 'button', className: 'tzm-add', textContent: '+ ⵔⵏⵓ ⴰⵎⴷⵢⴰ (Add example)' });
+        fsEx.appendChild(el('div', { id: 'zgh-ex-list' }));
+        const addEx = el('button', { type: 'button', className: 'tzm-add', textContent: '+ ⵔⵏⵓ ⴰⵎⴷⵢⴰ' });
         addEx.dataset.action = 'add-ex';
         fsEx.appendChild(addEx);
         colForm.appendChild(fsEx);
 
         // Related words
         const fsRel = fieldset('ⵜⵉⴳⵓⵔⵉⵡⵉⵏ ⵉⵣⴷⵉⵏ', 'Related words');
-        fsRel.appendChild(createLabel('ⵉⵎⵢⴰⵏⴰⵡⵏ (Synonyms):', createInput('synonyms', 'comma-separated')));
+        fsRel.appendChild(createLabel('ⵉⴽⵏⵉⵡⵏ:', createInput('synonyms', 'comma-separated')));
         colForm.appendChild(fsRel);
 
         // Save
-        const submitBtn = el('button', { id: 'tzm-submit-btn', textContent: 'ⵃⵔⵣ (Save)' });
+        const submitBtn = el('button', { id: 'zgh-submit-btn', textContent: 'ⵃⴹⵓ' });
         colForm.appendChild(submitBtn);
 
         // Preview column
-        const prevCard = el('div', { className: 'tzm-preview-card' });
-        const prevTitle = el('div', { className: 'tzm-preview-title' });
+        const prevCard = el('div', { className: 'zgh-preview-card' });
+        const prevTitle = el('div', { className: 'zgh-preview-title' });
         prevTitle.appendChild(starSpan());
         prevTitle.appendChild(el('span', { textContent: 'ⴰⵙⴽⴰⵏ (Wikitext preview)' }));
         prevCard.appendChild(prevTitle);
@@ -341,12 +340,12 @@
         if (!box) return;
         box.innerHTML = '';
         state.definitions.forEach((d, i) => {
-            const row = el('div', { className: 'tzm-row' });
-            const inp = el('input', { type: 'text', value: d, placeholder: 'ⴰⵏⴰⵎⴽ / Definition ' + (i + 1) });
+            const row = el('div', { className: 'zgh-row' });
+            const inp = el('input', { type: 'text', value: d, placeholder: 'ⴰⵏⴰⵎⴽ' + (i + 1) });
             inp.dataset.list = 'definitions';
             inp.dataset.index = i;
             row.appendChild(inp);
-            const del = el('button', { type: 'button', className: 'tzm-del', textContent: '✕' });
+            const del = el('button', { type: 'button', className: 'zgh-del', textContent: '✕' });
             del.dataset.action = 'del-def';
             del.dataset.index = i;
             row.appendChild(del);
@@ -355,21 +354,21 @@
     }
 
     function renderExamples() {
-        const box = document.getElementById('tzm-ex-list');
+        const box = document.getElementById('zgh-ex-list');
         if (!box) return;
         box.innerHTML = '';
         state.examples.forEach((ex, i) => {
-            const row = el('div', { className: 'tzm-row tzm-ex-row' });
-            const tam = el('input', { type: 'text', value: ex.tam, placeholder: 'ⴰⵎⴷⵢⴰ / Example (Tamazight)' });
-            tam.dataset.list = 'exampleTam';
+            const row = el('div', { className: 'zgh-row tzm-ex-row' });
+            const tam = el('input', { type: 'text', value: ex.zgh, placeholder: 'ⴰⵎⴷⵢⴰ (ⵜⴰⵎⴰⵣⵉⵖⵜ)' });
+            tam.dataset.list = 'exampleZgh';
             tam.dataset.index = i;
-            const tr = el('input', { type: 'text', value: ex.tr, placeholder: 'ⵜⴰⵙⵓⵖⵍⵜ / Translation' });
+            const tr = el('input', { type: 'text', value: ex.tr, placeholder: 'ⵜⴰⵙⵓⵖⵍⵜ' });
             tr.dataset.list = 'exampleTr';
             tr.dataset.index = i;
-            const del = el('button', { type: 'button', className: 'tzm-del', textContent: '✕' });
+            const del = el('button', { type: 'button', className: 'zgh-del', textContent: '✕' });
             del.dataset.action = 'del-ex';
             del.dataset.index = i;
-            row.appendChild(tam);
+            row.appendChild(zgh);
             row.appendChild(tr);
             row.appendChild(del);
             box.appendChild(row);
@@ -378,35 +377,35 @@
 
     function updatePosVisibility() {
         const isVerb = state.pos === 'verb';
-        const nb = document.getElementById('tzm-noun-block');
-        const vb = document.getElementById('tzm-verb-block');
+        const nb = document.getElementById('zgh-noun-block');
+        const vb = document.getElementById('zgh-verb-block');
         if (nb) nb.style.display = isVerb ? 'none' : '';
         if (vb) vb.style.display = isVerb ? '' : 'none';
     }
 
     // Flip the morphology field: headword singular -> ask plural; headword plural -> ask singular
     function updateCounterForm() {
-        const txt = document.getElementById('tzm-counterform-text');
-        const inp = document.querySelector('#tzm-noun-block input[data-field="plural"]');
+        const txt = document.getElementById('zgh-counterform-text');
+        const inp = document.querySelector('#zgh-noun-block input[data-field="plural"]');
         if (!txt) return;
         if (state.number === 'p') {
-            txt.textContent = 'ⴰⵙⵓⴼ (Singular form): ';
+            txt.textContent = 'ⴰⵎⵢⵉⵡⵏ (Singular form): ';
             if (inp) inp.placeholder = 'e.g. amaziɣ';
         } else {
-            txt.textContent = 'ⴰⵙⴳⵜ (Plural form): ';
+            txt.textContent = 'ⴰⵎⴰⴳⵓⵜ (Plural form): ';
             if (inp) inp.placeholder = 'e.g. imaziɣen';
         }
     }
 
     function renderPreview() {
-        const preview = document.getElementById('tzm-preview-area');
+        const preview = document.getElementById('zgh-preview-area');
         if (preview) preview.value = compileWikitext();
     }
 
     // -------------------------------------------------------------- events
 
     function attachEvents() {
-        const container = document.getElementById('tzm-gadget-container');
+        const container = document.getElementById('zgh-gadget-container');
         if (!container) return;
 
         const onChange = (e) => {
@@ -464,11 +463,11 @@
             renderPreview();
         });
 
-        const submitBtn = document.getElementById('tzm-submit-btn');
+        const submitBtn = document.getElementById('zgh-submit-btn');
         if (submitBtn) {
             submitBtn.addEventListener('click', () => {
                 const wikitext = compileWikitext();
-                submitEntry(wikitext, 'Siles awal amaynu (Created new entry)');
+                submitEntry(wikitext, 'ⵙⵏⵓⵍⴼⵉⵖ ⵜⵓⴷⵉⴼⵜ ⵜⴰⵎⴰⵢⵏⵓⵜ');
             });
         }
 
