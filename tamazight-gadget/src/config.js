@@ -1,5 +1,5 @@
 export const CONFIG = {
-  langCode: 'tzm' , 
+  langCode: 'zgh' , 
   defaultScript: 'Tfng' , 
   templates : {
     pos: 'pos', 
