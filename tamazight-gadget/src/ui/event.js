@@ -3,8 +3,8 @@ import { compileWikitext } from '../core/compiler.js';
 import { submitEntry } from '../api/mediawiki.js';
 
 export function attachEvents() {
-    const previewArea = document.getElementById('tzm-preview-area');
-    const submitBtn = document.getElementById('tzm-submit-btn');
+    const previewArea = document.getElementById('zgh-preview-area');
+    const submitBtn = document.getElementById('zgh-submit-btn');
 
     // Function to re-render the preview box whenever an input changes
     function updatePreview() {
@@ -15,13 +15,13 @@ export function attachEvents() {
 
     // Select all inputs, textareas, and dropdown selects inside the gadget container
     const formControls = document.querySelectorAll(
-        '.tzm-gadget input, .tzm-gadget textarea, .tzm-gadget select'
+        '.zgh-gadget input, .zgh-gadget textarea, .zgh-gadget select'
     );
 
     // Bind real-time input events to update state and refresh preview
     formControls.forEach((element) => {
         const handler = (e) => {
-            const fieldName = e.target.getAttribute('name') || e.target.id;
+            const fieldName = e.target.getAttribute('ⵉⵙⵎ') || e.target.id;
             const value = e.target.value;
 
             if (fieldName) {
@@ -50,9 +50,9 @@ export function attachEvents() {
             // Visual feedback: Disable button while request is in flight
             const originalButtonText = submitBtn.textContent;
             submitBtn.disabled = true;
-            submitBtn.textContent = 'Saving... / ⴰⵔ ⵉⵜⵜⵃⴼⴰⴹ...';
+            submitBtn.textContent = 'ⴰⵃⵟⵟⵓ...';
 
-            const summary = 'Creation: New entry in Tamazight / ⵜⴰⴳⵔⵜ: ⴰⵙⵏⵓⵍⴼⵓ ⵏ ⵓⵎⴰⴳⵔⴰⴷ';
+            const summary = 'ⴰⵙⵏⵓⵍⴼⵓ: ⴰⵙⵏⵓⵍⴼⵓ ⵏ ⵜⵓⴷⵉⴼⵜ ⵜⴰⵎⴰⵢⵏⵓⵜ';
 
             try {
                 // Call API helper from src/api/mediawiki.js
