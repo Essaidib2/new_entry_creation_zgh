@@ -1,54 +1,61 @@
 export function buildUI() {
     const container = document.createElement('div');
-    container.id = 'tzm-gadget-container';
-    container.className = 'tzm-gadget';
+    container.id = 'zgh-gadget-container';
+    container.className = 'zgh-gadget';
 
     const title = document.createElement('h3');
-    title.textContent = 'ⵙⵏⵓⵍⴼⵓ ⴰⵡⴰⵍ (Create Entry)';
+    title.textContent = 'ⵙⵏⵓⵍⴼⵓ ⵜⵓⴷⵉⴼⵜ';
     container.appendChild(title);
 
     // Dropdowns
-    const anawSelect = createSelect('lexicalData', 'anaw', [
-        { value: 'noun', text: 'ⵉⵙⵎ (Noun)' },
-        { value: 'verb', text: 'ⴰⵎⵢⴰⴳ (Verb)' },
-        { value: 'adjective', text: 'ⴰⵔⴱⵉⴱ (Adjective)' }
+    const anawSelect = createSelect('lexicalData', 'ⴰⵙⵎⵉⵍ ⵏ ⵜⴳⵓⵔⵉ', [
+        { value: 'noun', text: 'ⵉⵙⵎ' },
+        { value: 'proper noun', text: 'ⵉⵙⵎ ⵉⵥⵍⵉⵏ' },
+        { value: 'verb', text: 'ⴰⵎⵢⴰⴳ' },
+        { value: 'adjective', text: 'ⴰⴼⵔⵉⵙ' },
+        { value: 'adverb', text: 'ⴰⵎⵔⵏⵓ' },
+        { value: 'conjunction', text: 'ⵜⴰⵙⵖⵓⵏⵜ' },
+        { value: 'preposition', text: 'ⵜⴰⵏⵣⵖⵜ' },
+        { value: 'pronoun', text: 'ⴰⵎⵇⵇⵉⵎ' },
+        { value: 'interjection', text: 'ⵜⴰⵢⵢⴰⵢⵜ' },
+        
     ]);
-    container.appendChild(createLabel('ⴰⵏⴰⵡ (Anaw):', anawSelect));
+    container.appendChild(createLabel('ⴰⵏⴰⵡ:', anawSelect));
 
-    const tawsitSelect = createSelect('lexicalData', 'tawsit', [
+    const tawsitSelect = createSelect('lexicalData', 'ⴰⵏⴰⵡ ⵏ ⵜⴳⵓⵔⵢ', [
         { value: '', text: '-' },
-        { value: 'm', text: 'ⴰⵎⴰⵍⴰⵢ (Masculine)' },
-        { value: 'f', text: 'ⵓⵏⵜⵉ (Feminine)' }
+        { value: 'm', text: 'ⴰⵎⴰⵢ' },
+        { value: 'f', text: 'ⵓⵏⵜⵉ' }
     ]);
     container.appendChild(createLabel('ⵜⴰⵡⵙⵉⵜ (Tawsit):', tawsitSelect));
 
-    const amdanSelect = createSelect('lexicalData', 'amdan', [
+    const amdanSelect = createSelect('lexicalData', 'ⴰⵎⴹⴰⵏ', [
         { value: '', text: '-' },
-        { value: 's', text: 'ⴰⵙⵓⴼ (Singular)' },
-        { value: 'p', text: 'ⴰⵙⴳⵜ (Plural)' }
+        { value: 's', text: 'ⴰⵎⵢⵉⵡⵏ' },
+        { value: 'p', text: 'ⴰⵎⴰⴳⵓⵜ' }
     ]);
-    container.appendChild(createLabel('ⴰⵎⴹⴰⵏ (Amdan):', amdanSelect));
+    container.appendChild(createLabel('ⴰⵎⴹⴰⵏ:', amdanSelect));
 
     // Inputs
     const asusruInput = createInput('phonetics', 'asusru', 'text', 'e.g. ⴰⵎⴰⵣⵉⵖ');
-    container.appendChild(createLabel('ⴰⵙⵓⵙⵔⵓ (Asusru/IPA):', asusruInput));
+    container.appendChild(createLabel('ⴰⵙⵓⵙⵔⵓ (IPA):', asusruInput));
 
     const anamekInput = document.createElement('input');
     anamekInput.type = 'text';
     anamekInput.dataset.category = 'content';
-    anamekInput.dataset.key = 'anamek';
+    anamekInput.dataset.key = 'ⴰⵏⴰⵎⴽ';
     anamekInput.dataset.index = '0';
-    container.appendChild(createLabel('ⴰⵏⴰⵎⴽ 1 (Definition):', anamekInput));
+    container.appendChild(createLabel('ⴰⵏⴰⵎⴽ 1:', anamekInput));
 
     // Submit Button
     const submitBtn = document.createElement('button');
-    submitBtn.id = 'tzm-submit-btn';
-    submitBtn.textContent = 'ⵃⵔⵣ / ⵙⴽⵛⵎ (Save)';
+    submitBtn.id = 'zgh-submit-btn';
+    submitBtn.textContent = 'ⵃⴹⵓ';
     container.appendChild(submitBtn);
 
     // Live Preview
     const previewArea = document.createElement('textarea');
-    previewArea.id = 'tzm-preview-area';
+    previewArea.id = 'zgh-preview-area';
     previewArea.readOnly = true;
     container.appendChild(previewArea);
 
